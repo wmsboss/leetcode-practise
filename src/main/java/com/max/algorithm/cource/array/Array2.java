@@ -127,6 +127,14 @@ public class Array2<E> {
             remove(index);
     }
 
+    public E getLast(){
+        return get(size - 1);
+    }
+
+    public E getFirst(){
+        return get(0);
+    }
+
     @Override
     public String toString(){
 

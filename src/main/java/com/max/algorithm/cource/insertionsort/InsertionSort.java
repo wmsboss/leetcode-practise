@@ -1,5 +1,7 @@
 package com.max.algorithm.cource.insertionsort;
 
+import com.max.algorithm.cource.util.ArrayGenerator;
+
 import java.util.Arrays;
 
 public class InsertionSort {
