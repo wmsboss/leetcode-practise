@@ -1,6 +1,5 @@
-package com.max.algorithm.cource;
+package com.max.algorithm.cource.linearsearch;
 
-import com.max.algorithm.cource.pojo.Student;
 import com.max.algorithm.cource.util.ArrayGenerator;
 
 public class LinearSearch {

@@ -1,7 +1,10 @@
-package com.max.algorithm.cource.util;
+package com.max.algorithm.cource.selectionsort;
 
 import java.util.Random;
 
+/**
+ * Created by wumingshan on 2020/10/16.
+ */
 public class ArrayGenerator {
     private ArrayGenerator() {
 

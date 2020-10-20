@@ -1,4 +1,4 @@
-package com.max.algorithm.cource.pojo;
+package com.max.algorithm.cource.linearsearch;
 
 public class Student {
     private String name;
