@@ -41,11 +41,13 @@ public class Array2<E> {
         if(index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
 
-        if(size == data.length)
+        if(size == data.length) {
             resize(2 * data.length);
+        }
 
-        for(int i = size - 1; i >= index ; i --)
+        for (int i = size - 1; i >= index ; i --) {
             data[i + 1] = data[i];
+        }
 
         data[index] = e;
 
@@ -53,7 +55,7 @@ public class Array2<E> {
     }
 
     // 向所有元素后添加一个新元素
-    public void addLast(E e){
+    public void addLast(E e) {
         add(size, e);
     }
 
@@ -105,8 +107,10 @@ public class Array2<E> {
         size --;
         data[size] = null; // loitering objects != memory leak
 
-        if(size == data.length / 2)
+        if(size == data.length / 2) {
             resize(data.length / 2);
+        }
+
         return ret;
     }
 
@@ -136,8 +140,7 @@ public class Array2<E> {
     }
 
     @Override
-    public String toString(){
-
+    public String toString() {
         StringBuilder res = new StringBuilder();
         res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
         res.append('[');
@@ -152,10 +155,15 @@ public class Array2<E> {
 
     // 将数组空间的容量变成newCapacity大小
     private void resize(int newCapacity){
+        if (newCapacity == 0) {
+            return;
+        }
 
-        E[] newData = (E[])new Object[newCapacity];
-        for(int i = 0 ; i < size ; i ++)
+        E[] newData = (E[]) new Object[newCapacity];
+        for(int i = 0 ; i < size ; i ++) {
             newData[i] = data[i];
+        }
+
         data = newData;
     }
 }
