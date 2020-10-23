@@ -1,39 +1,44 @@
-package com.max.algorithm.cource.queue;
+package com.max.algorithm.cource.stack;
+
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by wumingshan on 2020/10/22.
+ * 使用队列实现栈
  */
 public class StackByQueue {
     private Queue<Integer> queue;
 
     public StackByQueue() {
-        queue = new ArrayQueue<>();
+        queue = new LinkedList<>();
     }
 
     public boolean empty() {
         return queue.isEmpty();
     }
 
-    public void push(int x) {
-        queue.enqueue(x);
+    public void push(int e) {
+        queue.add(e);
     }
 
     public int pop() {
-        Queue<Integer> queue2 = new ArrayQueue<>();
+        Queue<Integer> queue2 = new LinkedList<>();
 
         // 除了最后一个元素，将 q 中的所有元素放入 q2
-        while (queue.getSize() > 1) {
-            queue2.enqueue(queue.dequeue());
+        while (queue.size() > 1) {
+            queue2.add(queue.remove());
         }
 
         // q 中剩下的最后一个元素就是“栈顶”元素
-        int ret = queue.dequeue();
+        int topE = queue.remove();
 
         // 此时 q2 是整个数据结构存储的所有其他数据，赋值给 q
         queue = queue2;
 
         // 返回“栈顶元素”
-        return ret;
+        return topE;
     }
 
     public int top() {

@@ -2,7 +2,7 @@ package com.max.algorithm.twosum;
 
 class Solution {
     public static void main(String[] args) {
-        int[] nums = new int[] {-3,4,3,90};
+        int[] nums = new int[] {-3, 4, 3, 90};
         int target = 0;
 
         int [] result = new Solution().twoSum(nums, target);
