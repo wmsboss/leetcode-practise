@@ -7,7 +7,8 @@ import java.util.Queue;
 /**
  * Created by wumingshan on 2020/10/22.
  * 使用队列实现栈
- * push是O(n)的，pop是o(1)的
+ *
+ * 复杂度：push是O(n)的，pop是o(1)的
  */
 public class StackByQueue3 {
     private Queue<Integer> queue;

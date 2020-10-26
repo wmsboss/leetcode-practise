@@ -5,7 +5,10 @@ package com.max.algorithm.cource.queue;
  */
 public class LoopQueueWithNoSize<E> implements Queue<E> {
     private E[] data;
-    private int front, tail;
+
+    private int front;
+
+    private int tail;
 
     public LoopQueueWithNoSize(int capacity) {
         data = (E[])new Object[capacity + 1];
@@ -55,6 +58,7 @@ public class LoopQueueWithNoSize<E> implements Queue<E> {
         E ret = data[front];
         data[front] = null;
         front = (front + 1) % data.length;
+
         if(getSize() == getCapacity() / 4 && getCapacity() / 2 != 0) {
             resize(getCapacity() / 2);
         }

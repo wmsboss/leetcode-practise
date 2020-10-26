@@ -2,6 +2,7 @@ package com.max.algorithm.cource.queue;
 
 /**
  * Created by wumingshan on 2020/10/22.
+ * 双端队列
  */
 public class DeQueue<E> {
     private E[] data;
@@ -45,11 +46,13 @@ public class DeQueue<E> {
         size ++;
     }
 
-    public void addFront(E e){
+    public void addFront(E e) {
         if(size == getCapacity()) {
             resize(getCapacity() * 2);
         }
 
+        // 确定需要添加新元素的索引位置 front - 1
+        // 注意：如果front == 0，新的位置就是data.length - 1的位置
         front = front == 0 ? data.length - 1 : front - 1;
         data[front] = e;
         size ++;
@@ -60,7 +63,7 @@ public class DeQueue<E> {
             throw new IllegalArgumentException("Cannot dequeue from an empty queue.");
         }
 
-        E ret = data[front];
+        E result = data[front];
         data[front] = null;
         front = (front + 1) % data.length;
         size --;
@@ -69,7 +72,7 @@ public class DeQueue<E> {
             resize(getCapacity() / 2);
         }
 
-        return ret;
+        return result;
     }
 
     public E removeLast() {
@@ -77,6 +80,7 @@ public class DeQueue<E> {
             throw new IllegalArgumentException("Cannot dequeue from an empty queue.");
         }
 
+        // 删除掉队尾元素以后，新的tail位置
         tail = tail == 0 ? data.length - 1 : tail - 1;
 
         E ret = data[tail];
@@ -103,6 +107,7 @@ public class DeQueue<E> {
             throw new IllegalArgumentException("Queue is empty.");
         }
 
+        // 因为tail指向的是队尾元素的下一个位置，需要计算下真正队尾元素的索引
         int index = tail == 0 ? data.length - 1 : tail - 1;
 
         return data[index];

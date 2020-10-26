@@ -1,7 +1,7 @@
 package com.max.algorithm.cource.queue;
 
-import com.max.algorithm.cource.stack.ArrayStack;
-import com.max.algorithm.cource.stack.Stack;
+
+import java.util.Stack;
 
 /**
  * Created by wumingshan on 2020/10/22.
@@ -9,12 +9,14 @@ import com.max.algorithm.cource.stack.Stack;
  */
 public class QueueByStack2 {
     private Stack<Integer> stack1;
+
     private Stack<Integer> stack2;
-    int front;
+
+    private int front;
 
     public QueueByStack2() {
-        stack1 = new ArrayStack<>();
-        stack2 = new ArrayStack<>();
+        stack1 = new java.util.Stack<>();
+        stack2 = new Stack<>();
     }
 
     /** Push element x to the back of queue. */
@@ -29,19 +31,23 @@ public class QueueByStack2 {
     /** Removes the element from in front of queue and returns that element. */
     public int pop() {
         // 如果 stack2 不为空，直接返回 stack2 的栈首元素
-        if(!stack2.isEmpty())
+        if(!stack2.isEmpty()) {
             return stack2.pop();
+        }
 
-        while(stack1.getSize() > 1)
+        while(stack1.size() > 1) {
             stack2.push(stack1.pop());
+        }
 
         return stack1.pop();
     }
 
     /** Get the front element. */
     public int peek() {
-        if(!stack2.isEmpty())
+        if(!stack2.isEmpty()) {
             return stack2.peek();
+        }
+
         return front;
     }
 

@@ -9,6 +9,7 @@ import java.util.Queue;
  * 使用队列实现栈
  */
 public class StackByQueue {
+    // 假设：入队的一端是栈顶
     private Queue<Integer> queue;
 
     public StackByQueue() {
@@ -20,21 +21,22 @@ public class StackByQueue {
     }
 
     public void push(int e) {
+        // 入队的一端是栈顶（入栈操作）
         queue.add(e);
     }
 
     public int pop() {
         Queue<Integer> queue2 = new LinkedList<>();
 
-        // 除了最后一个元素，将 q 中的所有元素放入 q2
+        // 除了最后一个元素，将 queue 中的所有元素放入 queue2
         while (queue.size() > 1) {
             queue2.add(queue.remove());
         }
 
-        // q 中剩下的最后一个元素就是“栈顶”元素
+        // queue 中剩下的最后一个元素就是“栈顶”元素
         int topE = queue.remove();
 
-        // 此时 q2 是整个数据结构存储的所有其他数据，赋值给 q
+        // 此时 queue2 是整个数据结构存储的所有其他数据，赋值给 queue
         queue = queue2;
 
         // 返回“栈顶元素”

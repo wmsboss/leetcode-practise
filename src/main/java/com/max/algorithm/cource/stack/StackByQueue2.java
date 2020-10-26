@@ -7,11 +7,15 @@ import java.util.Queue;
 /**
  * Created by wumingshan on 2020/10/22.
  * 使用队列实现栈
- * push是O(1)的，pop是o(n)的
+ *
+ * 使top的复杂度降到1
+ * 复杂度：push是O(1)的，pop是o(n)的
  */
 public class StackByQueue2 {
     private Queue<Integer> queue;
-    private int top; // 追踪记录栈顶元素
+
+    // 追踪记录栈顶元素
+    private int top;
 
     public StackByQueue2() {
         queue = new LinkedList<>();
@@ -27,17 +31,17 @@ public class StackByQueue2 {
     }
 
     public int pop() {
-        Queue<Integer> q2 = new LinkedList<>();
+        Queue<Integer> queue2 = new LinkedList<>();
         while (queue.size() > 1){
-            // 每从 q 中取出一个元素，都给 top 赋值
-            // top 最后存储的就是 q 中除了队尾元素以外的最后一个元素
+            // 每从 queue 中取出一个元素，都给 top 赋值
+            // top 最后存储的就是 queue 中除了队尾元素以外的最后一个元素
             // 即新的栈顶元素
             top = queue.peek();
-            q2.add(queue.remove());
+            queue2.add(queue.remove());
         }
 
         int ret = queue.remove();
-        queue = q2;
+        queue = queue2;
 
         return ret;
     }

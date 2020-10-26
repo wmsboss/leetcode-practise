@@ -102,8 +102,10 @@ public class Array2<E> {
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
 
         E ret = data[index];
-        for(int i = index + 1 ; i < size ; i ++)
+        for(int i = index + 1 ; i < size ; i ++) {
             data[i - 1] = data[i];
+        }
+
         size --;
         data[size] = null; // loitering objects != memory leak
 

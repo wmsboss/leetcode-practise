@@ -1,27 +1,36 @@
 package com.max.algorithm.cource.queue;
 
-import com.max.algorithm.cource.stack.ArrayStack;
+import java.util.Stack;
 
 /**
  * Created by wumingshan on 2020/10/22.
- * push 是 O(n) 的，pop 是 O(1)
+ *
+ * 复杂度：push 是 O(n) 的，pop 是 O(1)
  */
 public class QueueByStack {
-    private ArrayStack<Integer> stack;
+    private Stack<Integer> stack;
 
     public QueueByStack() {
-        stack = new ArrayStack<>();
+        stack = new Stack<>();
     }
 
-    /** Push element x to the back of queue. */
+    /**
+     * 复杂度：O(n)
+     * Push element x to the back of queue.
+     * */
     public void push(int x) {
-        ArrayStack<Integer> stack2 = new ArrayStack<>();
+        // 创建一个新的stack2
+        Stack<Integer> stack2 = new Stack<>();
 
-        while(!stack.isEmpty())
+        // 将stack的元素暂存进stack2
+        while(!stack.isEmpty()) {
             stack2.push(stack.pop());
+        }
 
+        // 在stack中添加新元素x
         stack.push(x);
 
+        // 把stack2中的元素放回stack
         while(!stack2.isEmpty()) {
             stack.push(stack2.pop());
         }

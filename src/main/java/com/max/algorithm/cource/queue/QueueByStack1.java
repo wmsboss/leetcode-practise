@@ -1,18 +1,18 @@
 package com.max.algorithm.cource.queue;
 
-import com.max.algorithm.cource.stack.ArrayStack;
-import com.max.algorithm.cource.stack.Stack;
+import java.util.Stack;
 
 /**
  * Created by wumingshan on 2020/10/22.
- * push 是 O(1) 的，pop 是 O(n)
+ *
+ * 复杂度：push 是 O(1) 的，pop 是 O(n)
  */
 public class QueueByStack1 {
-    private ArrayStack<Integer> stack;
+    private Stack<Integer> stack;
     int front;
 
     public QueueByStack1() {
-        stack = new ArrayStack<>();
+        stack = new Stack<>();
     }
 
     /** Push element x to the back of queue. */
@@ -24,21 +24,30 @@ public class QueueByStack1 {
         stack.push(x);
     }
 
-    /** Removes the element from in front of queue and returns that element. */
+    /**
+     * O(n)
+     * Removes the element from in front of queue and returns that element.
+     * */
     public int pop() {
-        Stack<Integer> stack2 = new ArrayStack<>();
+        // 暂存除了最后一个元素以外的所有元素
+        Stack<Integer> stack2 = new Stack<>();
 
-        while(stack.getSize() > 1) {
-            front = stack.peek();
+        while (stack.size() > 1) {
+            front = stack.peek(); // 需要注意front的维护
+
             stack2.push(stack.pop());
         }
 
-        int ret = stack.pop();
+        // 取出栈底元素
+        int result = stack.pop();
 
-        while(!stack2.isEmpty())
+        // 把stack2的所有元素放回stack中
+        while (!stack2.isEmpty()) {
             stack.push(stack2.pop());
+        }
 
-        return ret;
+
+        return result;
     }
 
     /** Get the front element. */
