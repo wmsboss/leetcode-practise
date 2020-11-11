@@ -1,10 +1,8 @@
-package com.max.algorithm.interview0202;
+package com.max.algorithm.ls61;
 
 public class ListNode {
     int val;
-
     ListNode next;
-
     ListNode(int x) { val = x; }
 
     @Override

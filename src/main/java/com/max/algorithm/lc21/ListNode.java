@@ -1,4 +1,4 @@
-package com.max.algorithm.interview0202;
+package com.max.algorithm.lc21;
 
 public class ListNode {
     int val;

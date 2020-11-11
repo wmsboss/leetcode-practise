@@ -1,4 +1,4 @@
-package com.max.algorithm.lc24reverselist;
+package com.max.algorithm.jianzhioffer24;
 
 public class Solution2 {
     public ListNode reverseList(ListNode head) {

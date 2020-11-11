@@ -1,11 +1,13 @@
-package com.max.algorithm.interview0202;
+package com.max.algorithm.jianzhioffer22;
 
 public class ListNode {
     int val;
 
     ListNode next;
 
-    ListNode(int x) { val = x; }
+    ListNode(int x) {
+        val = x;
+    }
 
     @Override
     public String toString() {
