@@ -2,8 +2,8 @@ package com.max.algorithm.cource.mergesort;
 
 import java.util.Arrays;
 
-public class MergeSort {
-    private MergeSort() {
+public class MergeSortOptimizeByInsertionSort {
+    private MergeSortOptimizeByInsertionSort() {
     }
 
     public static <E extends Comparable<E>> void sort(E[] arr){
@@ -11,17 +11,18 @@ public class MergeSort {
     }
 
     private static <E extends Comparable<E>> void sort(E[] arr, int l, int r){
-        if (l >= r) {
+        // 优化
+        if(r - l <= 15){
+            InsertionSort.sort2(arr, l, r);
             return;
         }
 
         int mid = l + (r - l) / 2;
-
         sort(arr, l, mid);
-
         sort(arr, mid + 1, r);
 
-        merge(arr, l, mid, r);
+        if(arr[mid].compareTo(arr[mid + 1]) > 0)
+            merge(arr, l, mid, r);
     }
 
     // 合并两个有序区间arr[l, mid]和arr[mid + 1, r]
@@ -50,10 +51,12 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int n = 100000;
+        int n = 5000000;
 
         Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+        Integer[] arr2 = Arrays.copyOf(arr, arr.length);
 
         SortingHelper.sortTest("MergeSort", arr);
+        SortingHelper.sortTest("MergeSortOptimizeByInsertionSort", arr2);
     }
 }

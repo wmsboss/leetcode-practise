@@ -2,8 +2,8 @@ package com.max.algorithm.cource.mergesort;
 
 import java.util.Arrays;
 
-public class MergeSort {
-    private MergeSort() {
+public class MergeSortTest {
+    private MergeSortTest() {
     }
 
     public static <E extends Comparable<E>> void sort(E[] arr){
@@ -50,10 +50,16 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int n = 100000;
+        int[] dataSize = { 10000, 100000 };
 
-        Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+        for (int n : dataSize) {
+            Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+            Integer[] arr2 = Arrays.copyOf(arr, arr.length);
+            Integer[] arr3 = Arrays.copyOf(arr, arr.length);
 
-        SortingHelper.sortTest("MergeSort", arr);
+            SortingHelper.sortTest("SelectionSort", arr);
+            SortingHelper.sortTest("InsertionSort", arr2);
+            SortingHelper.sortTest("MergeSort", arr3);
+        }
     }
 }
