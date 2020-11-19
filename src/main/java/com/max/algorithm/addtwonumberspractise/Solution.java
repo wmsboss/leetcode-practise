@@ -1,4 +1,4 @@
-package com.max.algorithm.addtwonumbers;
+package com.max.algorithm.addtwonumberspractise;
 
 class Solution {
     public static void main(String[] args) {

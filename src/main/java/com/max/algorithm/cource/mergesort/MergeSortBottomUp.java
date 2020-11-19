@@ -1,5 +1,6 @@
 package com.max.algorithm.cource.mergesort;
 
+import java.awt.geom.Point2D;
 import java.util.Arrays;
 
 public class MergeSortBottomUp {
@@ -44,7 +45,6 @@ public class MergeSortBottomUp {
 
     public static void main(String[] args){
         int n = 10000000;
-
         Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
         Integer[] arr2 = Arrays.copyOf(arr, arr.length);
 
