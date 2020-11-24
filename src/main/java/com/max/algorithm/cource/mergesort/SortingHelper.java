@@ -1,6 +1,6 @@
 package com.max.algorithm.cource.mergesort;
 
-import com.max.algorithm.cource.quicksort.QuickSort;
+import com.max.algorithm.cource.quicksort.*;
 
 public class SortingHelper {
     private SortingHelper(){}
@@ -36,6 +36,14 @@ public class SortingHelper {
             MergeSortBottomUp.sortBottomUp(arr);
         else if(sortname.equals("QuickSort"))
             QuickSort.sort(arr);
+        else if(sortname.equals("QuickSort2"))
+            QuickSort2.sort(arr);
+        else if(sortname.equals("QuickSort3"))
+            QuickSort3.sort(arr);
+        else if(sortname.equals("QuickSort4"))
+            QuickSort4.sort(arr);
+        else if(sortname.equals("QuickSort2Ways"))
+            QuickSortTwoWays.sort(arr);
 
         long endTime = System.nanoTime();
 
