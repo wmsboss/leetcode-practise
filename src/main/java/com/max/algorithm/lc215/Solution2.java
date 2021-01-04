@@ -2,32 +2,30 @@ package com.max.algorithm.lc215;
 
 import java.util.Random;
 
-class Solution {
+class Solution2 {
+
     public int findKthLargest(int[] nums, int k) {
         Random rnd = new Random();
         return selectK(nums, nums.length - k, rnd);
     }
 
-    private int selectK(int[] arr, int k, Random rnd) {
+    private int selectK(int[] arr, int k, Random rnd){
+
         int l = 0, r = arr.length - 1;
-        while (l <= r) {
+        while(l <= r) {
             int p = partition(arr, l, r, rnd);
 
-            if (k == p) {
-                return arr[p];
-            }
+            if(k == p) return arr[p];
 
-            if (k < p) {
-                r = p - 1;
-            } else {
-                l = p + 1;
-            }
+            if(k < p) r = p - 1;
+            else l = p + 1;
         }
 
         throw new RuntimeException("No Solution");
     }
 
     private int partition(int[] arr, int l, int r, Random rnd){
+
         // 生成 [l, r] 之间的随机索引
         int p = l + rnd.nextInt(r - l + 1);
         swap(arr, l, p);
@@ -55,7 +53,6 @@ class Solution {
     }
 
     private void swap(int[] arr, int i, int j){
-
         int t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;

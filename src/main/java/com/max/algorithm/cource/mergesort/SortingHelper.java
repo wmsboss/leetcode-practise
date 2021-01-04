@@ -24,6 +24,8 @@ public class SortingHelper {
             InsertionSort.sort(arr);
         else if(sortname.equals("MergeSort"))
             MergeSort.sort(arr);
+        else if(sortname.equals("MergeSort2"))
+            MergeSort02.sort(arr);
         else if(sortname.equals("MergeSortTrace"))
             MergeSortWithTrackInfo.sort(arr);
         else if(sortname.equals("MergeSortOptimizeSortedArray"))
