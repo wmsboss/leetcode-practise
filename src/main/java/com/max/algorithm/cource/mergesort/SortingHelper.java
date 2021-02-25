@@ -1,5 +1,7 @@
 package com.max.algorithm.cource.mergesort;
 
+import com.max.algorithm.cource.bubblesort.BubbleSort;
+import com.max.algorithm.cource.heap.HeapSort;
 import com.max.algorithm.cource.quicksort.*;
 
 public class SortingHelper {
@@ -48,6 +50,14 @@ public class SortingHelper {
             QuickSortTwoWays.sort2ways(arr);
         else if(sortname.equals("QuickSort3Ways"))
             QuickSortThreeWays.sort3ways(arr);
+        else if(sortname.equals("HeapSort"))
+            HeapSort.sort(arr);
+        else if(sortname.equals("BubbleSort"))
+            BubbleSort.sort(arr);
+        else if(sortname.equals("BubbleSort2"))
+            BubbleSort.sort2(arr);
+        else if(sortname.equals("BubbleSort3"))
+            BubbleSort.sort3(arr);
 
         long endTime = System.nanoTime();
 
